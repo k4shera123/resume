@@ -1,10 +1,9 @@
 console.log("Resume loaded for Герман Кот");
 
-// Translations
 const translations = {
   ru: {
     name: "Герман Кот",
-    title: "Mobile System Developer",
+    title: "Разработчик мобильных систем",
     contactEmail: "g.kot@students.psu.by",
     contactTelegram: "@k4shera",
     contactGitHub: "k4shera123",
@@ -58,12 +57,11 @@ const translations = {
     ],
     disciplinesButton: "Изучаемые дисциплины",
     disciplinesPageTitle: "ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ",
-    backButton: "Назад",
+    backButton: "На главную",
     specLabel: "Специальность:",
     profilLabel: "Профилизация:",
     qualLabel: "Квалификация:",
   },
-
   en: {
     name: "Herman Kot",
     title: "Mobile System Developer",
@@ -120,139 +118,73 @@ const translations = {
     ],
     disciplinesButton: "Disciplines",
     disciplinesPageTitle: "DISCIPLINES",
-    backButton: "Back",
+    backButton: "Back to main",
     specLabel: "Specialty:",
     profilLabel: "Specialization:",
     qualLabel: "Qualification:",
-  },
-
-  zh: {
-    name: "赫尔曼·科特",
-    title: "移动系统开发员",
-    contactEmail: "g.kot@students.psu.by",
-    contactTelegram: "@k4shera",
-    contactGitHub: "k4shera123",
-    skillsTitle: "技能",
-    skillsList: ["沟通能力", "抗压能力", "主动性", "友好", "团队合作"],
-    aboutMeTitle: "关于我",
-    aboutMeParagraphs: [
-      "我是一名18岁的学生。性格开朗、积极主动，善于沟通，努力提升编程技能以促进职业发展。",
-      "<strong>专业软件技能：</strong> HTML, CSS, JavaScript（中级）, Git（初级）",
-      "<strong>语言能力：</strong> 俄语（母语）, 英语（A2）",
-      "<strong>爱好：</strong> 商业, 加密货币, 动效设计, 营销",
-    ],
-    educationTitle: "教育背景",
-    educationUniversity: "波洛茨克国立大学",
-    educationFaculty: "信息技术学院",
-    educationSpecialty: "专业：移动系统",
-    educationYears: "2024 – 2028",
-    experienceTitle: "工作经验",
-    experienceContent: `<p><strong>编程语言：C++</strong></p>
-      <p>完成了一系列实验和课程项目。主题包括：</p>
-      <ul>
-        <li>数组：实现数据处理和排序算法</li>
-        <li>链表和结构体：创建动态数据结构</li>
-        <li>排序：冒泡排序，快速排序，插入排序</li>
-        <li>课程项目"图书馆"：
-          <ul>
-            <li>按作者、标题、年份搜索</li>
-            <li>按各种标准排序</li>
-            <li>以表格形式显示</li>
-            <li>保存和加载文件中的数据</li>
-          </ul>
-        </li>
-      </ul>`,
-    coursesTitle: "课程",
-    coursesContent: "<ul><li>编程入门（C++）评分：优秀</li></ul>",
-    communityTitle: "社会活动",
-    communityContent: "<p>青年组织、工会和白俄罗斯共和国青年联盟成员，积极支持公民立场。</p>",
-    achievementsTitle: "成就与奖励",
-    achievementsContent: "<ul><li>数学共和国奥林匹克竞赛第二阶段第三名</li></ul>",
-    whyMeTitle: "为什么选择我？",
-    whyMeList: ["沟通是我的强项", "善于发现需求和注意细节", "准备展现自我并持续成长"],
-    disciplinesButton: "学科",
-    disciplinesPageTitle: "学科列表",
-    backButton: "返回",
-    specLabel: "专业：",
-    profilLabel: "细分：",
-    qualLabel: "资质：",
   }
 };
 
-// Update page content based on language
-function updateContent(lang) {
-  const t = translations[lang] || translations['en']; // Fallback to English if translation missing
-  
-  // Helper function to safely update element content
-  function updateElement(selector, content) {
-    const element = document.querySelector(selector);
-    if (element) {
-      if (typeof content === 'function') {
-        content(element);
-      } else {
-        element.innerHTML = content;
-      }
+function safeUpdate(selector, content, isHTML = true) {
+  const element = document.querySelector(selector);
+  if (element) {
+    if (isHTML) {
+      element.innerHTML = content;
+    } else {
+      element.textContent = content;
     }
+    return true;
   }
+  return false;
+}
 
-  // Sidebar
-  updateElement('.sidebar h1', t.name);
-  updateElement('.sidebar .title', t.title);
-  updateElement('.contact-info', `
+function updateContent(lang) {
+  const t = translations[lang] || translations['ru'];
+  
+  safeUpdate('.sidebar h1', t.name, false);
+  safeUpdate('.sidebar .title', t.title, false);
+  safeUpdate('.contact-info', `
     <p>📧 <a href="mailto:${t.contactEmail}">${t.contactEmail}</a></p>
-    <p>💬 <a href="https://t.me/k4shera" target="_blank">${t.contactTelegram}</a></p>
-    <p>💻 <a href="https://github.com/k4shera123" target="_blank">${t.contactGitHub}</a></p>
+    <p>💬 <a href="https://t.me/${t.contactTelegram.replace('@', '')}" target="_blank">${t.contactTelegram}</a></p>
+    <p>💻 <a href="https://github.com/${t.contactGitHub}" target="_blank">${t.contactGitHub}</a></p>
   `);
 
-  // Skills
-  updateElement('.skills h2', t.skillsTitle);
-  updateElement('.skills ul', (ul) => {
-    ul.innerHTML = t.skillsList.map(skill => `<li>${skill}</li>`).join('');
-  });
-
-  // About me
-  updateElement('.about h2', t.aboutMeTitle);
-  updateElement('.about .card', t.aboutMeParagraphs.map(p => `<p>${p}</p>`).join(''));
-
-  // Education
-  updateElement('.education h2', t.educationTitle);
-  updateElement('.education .card', `
+  safeUpdate('.skills h2', t.skillsTitle, false);
+  safeUpdate('.skills ul', t.skillsList.map(skill => `<li>${skill}</li>`).join(''));
+  
+  safeUpdate('.about h2', t.aboutMeTitle, false);
+  safeUpdate('.about .card', t.aboutMeParagraphs.map(p => `<p>${p}</p>`).join(''));
+  
+  safeUpdate('.education h2', t.educationTitle, false);
+  safeUpdate('.education .card', `
     <h3>${t.educationUniversity}</h3>
     <p>
-      ${t.educationFaculty}<br />
-      ${t.educationSpecialty}<br />
+      ${t.educationFaculty}<br>
+      ${t.educationSpecialty}<br>
       <em>${t.educationYears}</em>
     </p>
     <button id="view-disciplines" class="disciplines-link" type="button">
       ${t.disciplinesButton}
     </button>
   `);
+  
+  safeUpdate('.experience h2', t.experienceTitle, false);
+  safeUpdate('.experience .card', t.experienceContent);
+  
+  safeUpdate('.courses h2', t.coursesTitle, false);
+  safeUpdate('.courses .card', t.coursesContent);
+  
+  safeUpdate('.community h2', t.communityTitle, false);
+  safeUpdate('.community .card', t.communityContent);
+  
+  safeUpdate('.achievements h2', t.achievementsTitle, false);
+  safeUpdate('.achievements .card', t.achievementsContent);
+  
+  safeUpdate('.why-me h2', t.whyMeTitle, false);
+  safeUpdate('.why-me ul', t.whyMeList.map(item => `<li>${item}</li>`).join(''));
 
-  // Experience
-  updateElement('.experience h2', t.experienceTitle);
-  updateElement('.experience .card', t.experienceContent);
-
-  // Courses
-  updateElement('.courses h2', t.coursesTitle);
-  updateElement('.courses .card', t.coursesContent);
-
-  // Community
-  updateElement('.community h2', t.communityTitle);
-  updateElement('.community .card', t.communityContent);
-
-  // Achievements
-  updateElement('.achievements h2', t.achievementsTitle);
-  updateElement('.achievements .card', t.achievementsContent);
-
-  // Why me
-  updateElement('.why-me h2', t.whyMeTitle);
-  updateElement('.why-me ul', (ul) => {
-    ul.innerHTML = t.whyMeList.map(item => `<li>${item}</li>`).join('');
-  });
-
-  // Disciplines page
-  updateElement('.disciplines-header h1', t.disciplinesPageTitle);
-  updateElement('.back-button', `<i class="fas fa-arrow-left"></i> ${t.backButton}`);
+  safeUpdate('.disciplines-header h1', t.disciplinesPageTitle, false);
+  safeUpdate('.back-button', `<i class="fas fa-arrow-left"></i> ${t.backButton}`);
   
   const infoLabels = document.querySelectorAll('.specialization-info p');
   if (infoLabels.length >= 3) {
@@ -262,15 +194,12 @@ function updateContent(lang) {
   }
 }
 
-// Initialize the page
-function initPage() {
-  // Theme initialization
+function initApp() {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     document.body.classList.add('dark');
   }
 
-  // Language initialization
   const langSelector = document.getElementById('language-select');
   if (langSelector) {
     const savedLang = localStorage.getItem('language') || 'ru';
@@ -284,7 +213,30 @@ function initPage() {
     });
   }
 
-  // Scroll animation
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem(
+        'theme',
+        document.body.classList.contains('dark') ? 'dark' : 'light'
+      );
+    });
+  }
+
+  const backButton = document.querySelector('.back-button');
+  if (backButton) {
+    backButton.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'view-disciplines') {
+      window.location.href = 'disciplines.html';
+    }
+  });
+
   const animateElements = document.querySelectorAll('.animate');
   if (animateElements.length > 0) {
     const observer = new IntersectionObserver(
@@ -300,34 +252,6 @@ function initPage() {
     );
     animateElements.forEach(el => observer.observe(el));
   }
-
-  // Theme toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      localStorage.setItem(
-        'theme',
-        document.body.classList.contains('dark') ? 'dark' : 'light'
-      );
-    });
-  }
-
-  // Handle back button on disciplines page
-  const backButton = document.querySelector('.back-button');
-  if (backButton) {
-    backButton.addEventListener('click', () => {
-      window.history.back();
-    });
-  }
-
-  // Handle disciplines button using event delegation
-  document.addEventListener('click', (e) => {
-    if (e.target && e.target.id === 'view-disciplines') {
-      window.location.href = 'disciplines.html';
-    }
-  });
 }
 
-// Start everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', initPage);
+document.addEventListener('DOMContentLoaded', initApp);
