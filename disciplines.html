@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Дисциплины | Герман Кот</title>
   <link rel="stylesheet" href="style.css" />
   <link
@@ -12,16 +12,14 @@
 </head>
 <body>
   <div class="resume-wrapper disciplines-container">
-    <a href="index.html" class="back-button">
-      <i class="fas fa-arrow-left"></i> Назад
-    </a>
+    <a href="index.html" class="back-button"></a>
 
     <header class="disciplines-header">
-      <h1>ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ</h1>
+      <h1></h1>
       <div class="specialization-info">
-        <p><strong>Специальность:</strong> Компьютерная инженерия</p>
-        <p><strong>Профилизация:</strong> Программируемые мобильные системы</p>
-        <p><strong>Квалификация:</strong> инженер-системотехник</p>
+        <p><strong></strong> Компьютерная инженерия</p>
+        <p><strong></strong> Программируемые мобильные системы</p>
+        <p><strong></strong> инженер-системотехник</p>
       </div>
     </header>
 
@@ -46,7 +44,7 @@
             <td>2-й</td>
           </tr>
           <tr>
-            <td>Арифметические и логические основы ЦУ</td>
+            <td>Арифметические и логические основы цифровых устройств</td>
             <td><span class="grade perfect">10</span></td>
             <td>1-й, 2-й</td>
           </tr>
@@ -100,6 +98,19 @@
       <div class="shape shape-3"></div>
     </div>
   </div>
+
+  <select id="language-select" class="language-select" aria-label="Выбор языка">
+    <option value="ru">Русский</option>
+    <option value="en">English</option>
+    <option value="zh">中文</option>
+  </select>
+
+  <button
+    id="theme-toggle"
+    class="theme-toggle"
+    type="button"
+    aria-label="Переключить тему"
+  >🌓</button>
 
   <script src="index.js" defer></script>
 </body>
