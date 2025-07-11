@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дисциплины | Герман Кот</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container disciplines-container">
-        <button class="back-button"><i class="fas fa-arrow-left"></i> На главную</button>
+        <button id="back-button" class="back-button"><i class="fas fa-arrow-left"></i> <span id="back-button-text">На главную</span></button>
         
         <header class="disciplines-header">
-            <select id="language-select" aria-label="Select language" class="language-select">
-                <option value="ru">Русский</option>
-                <option value="en">English</option>
-                <option value="zh">中文</option>
-            </select>
-            <h1>ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ</h1>
+            <h1 id="disciplines-title">ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ</h1>
             <div class="specialization-info">
-                <p><strong>Специальность:</strong> Мобильные системы</p>
-                <p><strong>Профилизация:</strong> Программируемые мобильные системы</p>
-                <p><strong>Квалификация:</strong> Инженер-системотехник</p>
+                <p><strong id="specialty-label">Специальность:</strong> <span id="specialty-value">Мобильные системы</span></p>
+                <p><strong id="specialization-label">Профилизация:</strong> <span id="specialization-value">Программируемые мобильные системы</span></p>
+                <p><strong id="qualification-label">Квалификация:</strong> <span id="qualification-value">Инженер-системотехник</span></p>
             </div>
         </header>
         
@@ -29,73 +27,264 @@
             <table class="disciplines-table">
                 <thead>
                     <tr>
-                        <th>Дисциплина</th>
-                        <th>Отметка</th>
-                        <th>Семестр</th>
+                        <th id="discipline-header">Дисциплина</th>
+                        <th id="grade-header">Отметка</th>
+                        <th id="semester-header">Семестр</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Основы алгоритмизации и программирования</td>
+                        <td id="subject1">Основы алгоритмизации и программирования</td>
                         <td><span class="grade excellent">5</span></td>
-                        <td>1-ый, 2-ой</td>
+                        <td id="semester1">1-ый, 2-ой</td>
                     </tr>
                     <tr>
-                        <td>Алгоритмы структуры данных</td>
+                        <td id="subject2">Алгоритмы структуры данных</td>
                         <td><span class="grade excellent">7</span></td>
-                        <td>2-ой</td>
+                        <td id="semester2">2-ой</td>
                     </tr>
                     <tr>
-                        <td>Арифметические и логические основы цифровых устройств</td>
+                        <td id="subject3">Арифметические и логические основы цифровых устройств</td>
                         <td><span class="grade perfect">5</span></td>
-                        <td>1-ый, 2-ой</td>
+                        <td id="semester3">1-ый, 2-ой</td>
                     </tr>
                     <tr>
-                        <td>Физика</td>
+                        <td id="subject4">Физика</td>
                         <td><span class="grade good">4</span></td>
-                        <td>1-ый, 2-ой</td>
+                        <td id="semester4">1-ый, 2-ой</td>
                     </tr>
                     <tr>
-                        <td>Личностно-профессиональное развитие специалиста</td>
+                        <td id="subject5">Личностно-профессиональное развитие специалиста</td>
                         <td><span class="grade excellent">8</span></td>
-                        <td>2-ой</td>
+                        <td id="semester5">2-ой</td>
                     </tr>
                     <tr>
-                        <td>Культурология</td>
+                        <td id="subject6">Культурология</td>
                         <td><span class="grade good">7</span></td>
-                        <td>2-ой</td>
+                        <td id="semester6">2-ой</td>
                     </tr>
                     <tr>
-                        <td>Математический анализ</td>
+                        <td id="subject7">Математический анализ</td>
                         <td><span class="grade perfect">7</span></td>
-                        <td>1-ый, 2-ой</td>
+                        <td id="semester7">1-ый, 2-ой</td>
                     </tr>
                     <tr>
-                        <td>Дискретная математика</td>
+                        <td id="subject8">Дискретная математика</td>
                         <td><span class="grade good">6</span></td>
-                        <td>2-ой</td>
+                        <td id="semester8">2-ой</td>
                     </tr>
                     <tr>
-                        <td>Линейная алгебра и аналитическая геометрия</td>
+                        <td id="subject9">Линейная алгебра и аналитическая геометрия</td>
                         <td><span class="grade perfect">7</span></td>
-                        <td>1-ый</td>
+                        <td id="semester9">1-ый</td>
                     </tr>
                     <tr>
-                        <td>Английский язык</td>
+                        <td id="subject10">Английский язык</td>
                         <td><span class="grade good">8</span></td>
-                        <td>1-ый, 2-ой</td>
+                        <td id="semester10">1-ый, 2-ой</td>
                     </tr>
                     <tr>
-                        <td>История Беларуси</td>
+                        <td id="subject11">История Беларуси</td>
                         <td><span class="grade excellent">7</span></td>
-                        <td>1-ый</td>
+                        <td id="semester11">1-ый</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
+    <select id="language-select" class="language-select">
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+    </select>
+
     <button id="theme-toggle" class="theme-toggle">🌓</button>
-    <script src="index.js"></script>
+    
+    <script>
+        // Переводы для страницы дисциплин
+        const translations = {
+            ru: {
+                title: "Дисциплины | Герман Кот",
+                backButton: "На главную",
+                disciplinesTitle: "ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ",
+                specialtyLabel: "Специальность:",
+                specialtyValue: "Мобильные системы",
+                specializationLabel: "Профилизация:",
+                specializationValue: "Программируемые мобильные системы",
+                qualificationLabel: "Квалификация:",
+                qualificationValue: "Инженер-системотехник",
+                disciplineHeader: "Дисциплина",
+                gradeHeader: "Отметка",
+                semesterHeader: "Семестр",
+                subjects: [
+                    "Основы алгоритмизации и программирования",
+                    "Алгоритмы структуры данных",
+                    "Арифметические и логические основы цифровых устройств",
+                    "Физика",
+                    "Личностно-профессиональное развитие специалиста",
+                    "Культурология",
+                    "Математический анализ",
+                    "Дискретная математика",
+                    "Линейная алгебра и аналитическая геометрия",
+                    "Английский язык",
+                    "История Беларуси"
+                ],
+                semesters: [
+                    "1-ый, 2-ой",
+                    "2-ой",
+                    "1-ый, 2-ой",
+                    "1-ый, 2-ой",
+                    "2-ой",
+                    "2-ой",
+                    "1-ый, 2-ой",
+                    "2-ой",
+                    "1-ый",
+                    "1-ый, 2-ой",
+                    "1-ый"
+                ]
+            },
+            en: {
+                title: "Disciplines | Herman Kot",
+                backButton: "Back to main",
+                disciplinesTitle: "STUDY DISCIPLINES",
+                specialtyLabel: "Specialty:",
+                specialtyValue: "Mobile Systems",
+                specializationLabel: "Specialization:",
+                specializationValue: "Programmable Mobile Systems",
+                qualificationLabel: "Qualification:",
+                qualificationValue: "System Engineer",
+                disciplineHeader: "Discipline",
+                gradeHeader: "Grade",
+                semesterHeader: "Semester",
+                subjects: [
+                    "Fundamentals of Algorithms and Programming",
+                    "Data Structures Algorithms",
+                    "Arithmetic and Logical Foundations of Digital Devices",
+                    "Physics",
+                    "Personal and Professional Development of a Specialist",
+                    "Culturology",
+                    "Mathematical Analysis",
+                    "Discrete Mathematics",
+                    "Linear Algebra and Analytic Geometry",
+                    "English Language",
+                    "History of Belarus"
+                ],
+                semesters: [
+                    "1st, 2nd",
+                    "2nd",
+                    "1st, 2nd",
+                    "1st, 2nd",
+                    "2nd",
+                    "2nd",
+                    "1st, 2nd",
+                    "2nd",
+                    "1st",
+                    "1st, 2nd",
+                    "1st"
+                ]
+            },
+            zh: {
+                title: "学科 | 赫尔曼·科特",
+                backButton: "返回",
+                disciplinesTitle: "学科列表",
+                specialtyLabel: "专业:",
+                specialtyValue: "移动系统",
+                specializationLabel: "细分:",
+                specializationValue: "可编程移动系统",
+                qualificationLabel: "资质:",
+                qualificationValue: "系统工程师",
+                disciplineHeader: "学科",
+                gradeHeader: "分数",
+                semesterHeader: "学期",
+                subjects: [
+                    "算法和编程基础",
+                    "数据结构算法",
+                    "数字设备的算术和逻辑基础",
+                    "物理",
+                    "专家的个人和专业发展",
+                    "文化学",
+                    "数学分析",
+                    "离散数学",
+                    "线性代数和解析几何",
+                    "英语",
+                    "白俄罗斯历史"
+                ],
+                semesters: [
+                    "第一、二学期",
+                    "第二学期",
+                    "第一、二学期",
+                    "第一、二学期",
+                    "第二学期",
+                    "第二学期",
+                    "第一、二学期",
+                    "第二学期",
+                    "第一学期",
+                    "第一、二学期",
+                    "第一学期"
+                ]
+            }
+        };
+
+        // Функция обновления контента
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            document.title = t.title;
+            document.getElementById('back-button-text').textContent = t.backButton;
+            document.getElementById('disciplines-title').textContent = t.disciplinesTitle;
+            document.getElementById('specialty-label').textContent = t.specialtyLabel;
+            document.getElementById('specialty-value').textContent = t.specialtyValue;
+            document.getElementById('specialization-label').textContent = t.specializationLabel;
+            document.getElementById('specialization-value').textContent = t.specializationValue;
+            document.getElementById('qualification-label').textContent = t.qualificationLabel;
+            document.getElementById('qualification-value').textContent = t.qualificationValue;
+            document.getElementById('discipline-header').textContent = t.disciplineHeader;
+            document.getElementById('grade-header').textContent = t.gradeHeader;
+            document.getElementById('semester-header').textContent = t.semesterHeader;
+            
+            // Обновляем названия дисциплин
+            for (let i = 0; i < t.subjects.length; i++) {
+                document.getElementById(`subject${i+1}`).textContent = t.subjects[i];
+                document.getElementById(`semester${i+1}`).textContent = t.semesters[i];
+            }
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            // Загрузка темы
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+            }
+
+            // Загрузка языка
+            const langSelector = document.getElementById('language-select');
+            const savedLang = localStorage.getItem('language') || 'ru';
+            langSelector.value = savedLang;
+            updateContent(savedLang);
+
+            // Обработчик изменения языка
+            langSelector.addEventListener('change', (e) => {
+                const lang = e.target.value;
+                localStorage.setItem('language', lang);
+                updateContent(lang);
+            });
+
+            // Обработчик темы
+            document.getElementById('theme-toggle').addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                localStorage.setItem(
+                    'theme',
+                    document.body.classList.contains('dark') ? 'dark' : 'light'
+                );
+            });
+
+            // Обработчик кнопки "Назад"
+            document.getElementById('back-button').addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
 </body>
 </html>
