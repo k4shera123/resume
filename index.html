@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Герман Кот — Резюме</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
     rel="stylesheet"
-  />
+  >
 </head>
 <body>
   <div class="resume-wrapper">
     <aside class="sidebar">
-      <div class="profile-photo"></div>
+      <img
+        src="https://via.placeholder.com/120"
+        alt="Фото Германа Кота"
+        class="profile-photo"
+      >
+
       <h1>Герман Кот</h1>
       <p class="title">Mobile System Developer</p>
+
       <div class="contact-info">
         <p>📧 <a href="mailto:g.kot@students.psu.by">g.kot@students.psu.by</a></p>
-        <p>💬 <a href="https://t.me/k4shera" target="_blank">@k4shera</a></p>
-        <p>💻 <a href="https://github.com/k4shera123" target="_blank">k4shera123</a></p>
+        <p>💬 <a href="https://t.me/k4shera" target="_blank" rel="noopener">@k4shera</a></p>
+        <p>💻 <a href="https://github.com/k4shera123" target="_blank" rel="noopener">k4shera123</a></p>
       </div>
+
       <div class="skills">
         <h2>Навыки</h2>
         <ul>
@@ -33,7 +40,12 @@
           <li>Работа в команде</li>
         </ul>
       </div>
-      <button id="view-disciplines" class="disciplines-link">
+
+      <button
+        id="view-disciplines"
+        class="disciplines-link"
+        type="button"
+      >
         Изучаемые дисциплины
       </button>
     </aside>
@@ -42,7 +54,7 @@
       <section class="about animate">
         <h2>Обо мне</h2>
         <div class="card">
-          <p>Я 18-летний студент. Общительный и инициативный, легко нахожу общий философский язык и стремлюсь развивать навыки программирования для карьерного роста.</p>
+          <p>Я 18-летний студент. Общительный и инициативный, легко нахожу общий язык и стремлюсь развивать навыки программирования для карьерного роста.</p>
           <p><strong>Профессиональные навыки ПО:</strong> HTML, CSS, JavaScript (средний), Git (начальный)</p>
           <p><strong>Языковые навыки:</strong> Русский (родной), Английский (A2)</p>
           <p><strong>Хобби:</strong> Бизнес, криптовалюта, motion design, маркетинг</p>
@@ -54,8 +66,8 @@
         <div class="card">
           <h3>Полоцкий Государственный Университет</h3>
           <p>
-            Факультет Информационных Технологий<br />
-            Специальность: Мобильные системы<br />
+            Факультет Информационных Технологий<br>
+            Специальность: Мобильные системы<br>
             <em>2024 – 2028</em>
           </p>
         </div>
@@ -65,17 +77,17 @@
         <h2>Опыт работы</h2>
         <div class="card">
           <p><strong>Язык программирования: C++</strong></p>
-          <p>Работал над рядом лабораторных и курсовых работ в рамках учебной программы. Темы включали:</p>
+          <p>Работал над рядами лабораторных и курсовых работ в рамках учебной программы. Темы включали:</p>
           <ul>
             <li>Массивы: алгоритмы обработки и сортировки данных</li>
             <li>Связанные списки и структуры: динамические структуры данных</li>
             <li>Сортировки: пузырьковая, быстрая, вставками</li>
             <li>Курсовая работа «Библиотека»:
               <ul>
-                <li>Поиск по автору, названию, году</li>
-                <li>Сортировка по критериям</li>
-                <li>Отображение в виде таблицы</li>
-                <li>Сохранение/загрузка в файл</li>
+                <li>Поиск по автору, названию и году</li>
+                <li>Сортировка по различным критериям</li>
+                <li>Отображение списка в виде таблицы</li>
+                <li>Сохранение и загрузка данных в файл</li>
               </ul>
             </li>
           </ul>
@@ -118,13 +130,28 @@
     </main>
   </div>
 
-  <select id="language-select" class="language-select" aria-label="Выбор языка">
+  <!-- Переключатель языка -->
+  <select
+    id="language-select"
+    class="language-select"
+    aria-label="Выбор языка"
+  >
     <option value="ru">Русский</option>
     <option value="en">English</option>
     <option value="zh">中文</option>
   </select>
 
-  <button id="theme-toggle" class="theme-toggle">🌓</button>
+  <!-- Переключатель темы -->
+  <button
+    id="theme-toggle"
+    class="theme-toggle"
+    type="button"
+    aria-label="Переключить тему"
+  >
+    🌓
+  </button>
+
   <script src="index.js" defer></script>
 </body>
 </html>
+```
