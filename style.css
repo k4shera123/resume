@@ -206,6 +206,7 @@ body {
   background-color: #3730a3;
 }
 
+/* Стили для страницы дисциплин */
 .disciplines-container {
   max-width: 900px;
   margin: 2rem auto;
@@ -272,7 +273,7 @@ body {
   background-color: #3B82F6;
 }
 
-.back-button {
+#back-button {
   background-color: var(--primary-color);
   color: white;
   border: none;
@@ -286,7 +287,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.back-button:hover {
+#back-button:hover {
   background-color: #3730a3;
 }
 
@@ -356,5 +357,15 @@ body {
 
   .disciplines-container {
     padding: 1.5rem;
+  }
+
+  .language-select {
+    bottom: 70px;
+    right: 15px;
+  }
+
+  .theme-toggle {
+    bottom: 15px;
+    right: 15px;
   }
 }
