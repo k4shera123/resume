@@ -5,7 +5,7 @@
   --background-color: #F9FAFB;
   --card-background: #FFFFFF;
   --sidebar-background: #EEF2FF;
-  --card-item-background: #FFFFFF; /* NEW for skill list items */
+  --card-item-background: #FFFFFF;
   --text-color: #374151;
   --muted-text: #6B7280;
   --shadow-color: rgba(0, 0, 0, 0.05);
@@ -109,7 +109,7 @@ body {
 }
 
 .skills li {
-  background-color: var(--card-item-background); /* CHANGED */
+  background-color: var(--card-item-background);
   padding: 0.5rem 0.75rem;
   margin-bottom: 0.75rem;
   border-radius: 8px;
@@ -210,7 +210,7 @@ body.dark {
   --background-color: #111827;
   --card-background: #1F2937;
   --sidebar-background: #1E293B;
-  --card-item-background: #334155; /* Dark version of skill items */
+  --card-item-background: #334155;
   --text-color: #F3F4F6;
   --muted-text: #9CA3AF;
   --shadow-color: rgba(0, 0, 0, 0.5);
@@ -258,4 +258,141 @@ body.dark .language-select {
   background-color: var(--card-background);
   color: var(--text-color);
   border-color: var(--primary-color);
+}
+
+/* ==== Кнопка на главной странице ==== */
+.disciplines-link {
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.disciplines-link:hover {
+  background-color: #3730a3;
+}
+
+/* ==== Стили для страницы дисциплин ==== */
+.disciplines-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.back-button i {
+  margin-right: 0.4rem;
+}
+
+.disciplines-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.disciplines-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.specialization-info p {
+  margin: 0.3rem 0;
+  color: var(--text-color);
+}
+
+.disciplines-table-container {
+  overflow-x: auto;
+}
+
+.disciplines-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.disciplines-table th,
+.disciplines-table td {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--shadow-color);
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.grade {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.grade.perfect {
+  background-color: #10B981;
+}
+
+.grade.excellent {
+  background-color: #3B82F6;
+}
+
+.grade.good {
+  background-color: #F59E0B;
+}
+
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  background-color: var(--primary-color);
+  opacity: 0.1;
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  left: -50px;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  right: -100px;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  bottom: 50px;
+  left: -75px;
 }
