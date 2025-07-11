@@ -1,223 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --text-color: #333;
-    --bg-color: #f9f9f9;
-    --card-color: #fff;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+  --primary-color: #4F46E5;
+  --background-color: #F9FAFB;
+  --card-background: #FFFFFF;
+  --sidebar-background: #EEF2FF;
+  --card-item-background: #FFFFFF;
+  --text-color: #374151;
+  --muted-text: #6B7280;
+  --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
 .dark {
-    --primary-color: #2980b9;
-    --secondary-color: #27ae60;
-    --text-color: #f0f0f0;
-    --bg-color: #222;
-    --card-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: #6366F1;
+  --background-color: #111827;
+  --card-background: #1F2937;
+  --sidebar-background: #1E293B;
+  --card-item-background: #334155;
+  --text-color: #F3F4F6;
+  --muted-text: #9CA3AF;
+  --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 2rem;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.container {
-    display: flex;
-    min-height: 100vh;
+.resume-wrapper {
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px var(--shadow-color);
+  overflow: hidden;
+  transition: background-color 0.4s ease;
 }
 
 .sidebar {
-    width: 300px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 2rem;
-    position: relative;
+  background-color: var(--sidebar-background);
+  width: 280px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.4s ease;
 }
 
-.sidebar-content {
-    position: sticky;
-    top: 2rem;
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  background: url('https://via.placeholder.com/120') no-repeat center/cover;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .sidebar h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
 }
 
-.sidebar .title {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+.title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--muted-text);
+  margin-bottom: 1.5rem;
 }
 
-.contact-info {
-    margin: 2rem 0;
+.contact-info p {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
 }
 
 .contact-info a {
-    color: white;
-    text-decoration: none;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    text-decoration: underline;
+  color: #3730a3;
+  text-decoration: underline;
 }
 
-.language-switcher {
-    margin: 1.5rem 0;
+.skills {
+  margin-top: 2rem;
+  width: 100%;
 }
 
-.language-switcher select {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: none;
-    background-color: white;
+.skills h2 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.25rem;
+  text-align: left;
 }
 
-.theme-toggle {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: none;
-    background-color: var(--secondary-color);
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+.skills ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.theme-toggle:hover {
-    opacity: 0.9;
+.skills li {
+  background-color: var(--card-item-background);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: left;
+  transition: background-color 0.4s ease;
 }
 
 .main-content {
-    flex: 1;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+  flex: 1;
+  padding: 3rem 3rem 3rem 2rem;
+  overflow-y: auto;
 }
 
-section {
-    margin-bottom: 2rem;
+.main-content section {
+  margin-bottom: 2.5rem;
 }
 
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+.main-content h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 0.3rem;
 }
 
-.card {
-    background-color: var(--card-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px var(--shadow-color);
-    margin-bottom: 1rem;
+.main-content p,
+.main-content ul {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-color);
 }
 
-.card h3 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
+.main-content ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
 }
 
-.card ul {
-    padding-left: 1.5rem;
+.main-content ul li {
+  margin-bottom: 0.6rem;
 }
 
-.card li {
-    margin-bottom: 0.5rem;
+.main-content .card {
+  background-color: var(--background-color);
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  margin-top: 1rem;
+  transition: background-color 0.4s ease;
+}
+
+.main-content .card h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.main-content .card p em {
+  font-style: italic;
+  color: var(--muted-text);
 }
 
 .disciplines-link {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.7rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 1rem;
-    width: 100%;
-    font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .disciplines-link:hover {
-    opacity: 0.9;
+  background-color: #3730a3;
 }
 
-/* Disciplines page styles */
+.disciplines-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
 .disciplines-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.back-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.7rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.disciplines-header h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .specialization-info {
-    background-color: var(--card-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px var(--shadow-color);
-    margin-bottom: 2rem;
+  background-color: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  margin-bottom: 2rem;
 }
 
 .specialization-info p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.disciplines-list h2 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+.disciplines-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
 }
 
-/* Animations */
+.disciplines-table th,
+.disciplines-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--muted-text);
+}
+
+.disciplines-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.grade {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+}
+
+.grade.excellent {
+  background-color: #10B981;
+}
+
+.grade.good {
+  background-color: #F59E0B;
+}
+
+.grade.perfect {
+  background-color: #3B82F6;
+}
+
+.back-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #3730a3;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background-color: #3730a3;
+}
+
+.language-select {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--card-background);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+}
+
 .animate {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animate.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+  .resume-wrapper {
+    flex-direction: column;
+    max-width: 100%;
+  }
 
-    .sidebar {
-        width: 100%;
-        padding: 1.5rem;
-    }
+  .sidebar {
+    width: 100%;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
 
-    .main-content {
-        padding: 1.5rem;
-    }
+  .main-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .disciplines-container {
+    padding: 1.5rem;
+  }
 }
