@@ -1,117 +1,57 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Дисциплины | Герман Кот</title>
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дисциплины - Герман Кот</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="resume-wrapper disciplines-container">
-    <a href="index.html" class="back-button"></a>
+    <div class="container">
+        <header class="disciplines-header">
+            <h1>ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ</h1>
+            <button class="back-button"><i class="fas fa-arrow-left"></i> На главную</button>
+        </header>
 
-    <header class="disciplines-header">
-      <h1></h1>
-      <div class="specialization-info">
-        <p><strong></strong> Компьютерная инженерия</p>
-        <p><strong></strong> Программируемые мобильные системы</p>
-        <p><strong></strong> инженер-системотехник</p>
-      </div>
-    </header>
+        <main class="disciplines-content">
+            <div class="specialization-info">
+                <p><strong>Специальность:</strong> Мобильные системы</p>
+                <p><strong>Профилизация:</strong> Разработка мобильных приложений</p>
+                <p><strong>Квалификация:</strong> Инженер-программист</p>
+            </div>
 
-    <div class="disciplines-table-container">
-      <table class="disciplines-table">
-        <thead>
-          <tr>
-            <th>Дисциплина</th>
-            <th>Отметка</th>
-            <th>Семестр</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Основы алгоритмизации и программирования</td>
-            <td><span class="grade excellent">9</span></td>
-            <td>1-й, 2-й</td>
-          </tr>
-          <tr>
-            <td>Алгоритмы и структуры данных</td>
-            <td><span class="grade excellent">9</span></td>
-            <td>2-й</td>
-          </tr>
-          <tr>
-            <td>Арифметические и логические основы цифровых устройств</td>
-            <td><span class="grade perfect">10</span></td>
-            <td>1-й, 2-й</td>
-          </tr>
-          <tr>
-            <td>Физика</td>
-            <td><span class="grade good">8</span></td>
-            <td>1-й, 2-й</td>
-          </tr>
-          <tr>
-            <td>Личностно-профессиональное развитие специалиста</td>
-            <td><span class="grade excellent">9</span></td>
-            <td>2-й</td>
-          </tr>
-          <tr>
-            <td>Культурология</td>
-            <td><span class="grade good">8</span></td>
-            <td>2-й</td>
-          </tr>
-          <tr>
-            <td>Математический анализ</td>
-            <td><span class="grade perfect">10</span></td>
-            <td>1-й, 2-й</td>
-          </tr>
-          <tr>
-            <td>Дискретная математика</td>
-            <td><span class="grade good">8</span></td>
-            <td>2-й</td>
-          </tr>
-          <tr>
-            <td>Линейная алгебра и аналитическая геометрия</td>
-            <td><span class="grade perfect">10</span></td>
-            <td>1-й</td>
-          </tr>
-          <tr>
-            <td>Английский язык</td>
-            <td><span class="grade good">8</span></td>
-            <td>1-й, 2-й</td>
-          </tr>
-          <tr>
-            <td>История Беларуси</td>
-            <td><span class="grade excellent">9</span></td>
-            <td>1-й</td>
-          </tr>
-        </tbody>
-      </table>
+            <div class="disciplines-list">
+                <h2>1 курс</h2>
+                <ul>
+                    <li>Введение в программирование (C++)</li>
+                    <li>Дискретная математика</li>
+                    <li>Алгоритмы и структуры данных</li>
+                    <li>Архитектура компьютеров</li>
+                    <li>Иностранный язык (английский)</li>
+                </ul>
+
+                <h2>2 курс</h2>
+                <ul>
+                    <li>Объектно-ориентированное программирование (Java)</li>
+                    <li>Базы данных</li>
+                    <li>Операционные системы</li>
+                    <li>Компьютерные сети</li>
+                    <li>Мобильная разработка (Android)</li>
+                </ul>
+
+                <h2>3 курс</h2>
+                <ul>
+                    <li>Разработка iOS приложений (Swift)</li>
+                    <li>Кросс-платформенная разработка (Flutter)</li>
+                    <li>Веб-технологии для мобильных систем</li>
+                    <li>Безопасность мобильных приложений</li>
+                    <li>Проектирование пользовательских интерфейсов</li>
+                </ul>
+            </div>
+        </main>
     </div>
 
-    <div class="floating-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
-  </div>
-
-  <select id="language-select" class="language-select" aria-label="Выбор языка">
-    <option value="ru">Русский</option>
-    <option value="en">English</option>
-    <option value="zh">中文</option>
-  </select>
-
-  <button
-    id="theme-toggle"
-    class="theme-toggle"
-    type="button"
-    aria-label="Переключить тему"
-  >🌓</button>
-
-  <script src="index.js" defer></script>
+    <script src="index.js"></script>
 </body>
 </html>
