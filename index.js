@@ -3,7 +3,6 @@ console.log("Resume loaded for Герман Кот");
 // Translations
 const translations = {
   ru: {
-    // index.html
     name: "Герман Кот",
     title: "Mobile System Developer",
     contactEmail: "g.kot@students.psu.by",
@@ -46,22 +45,17 @@ const translations = {
         </li>
       </ul>`,
     coursesTitle: "Учебные курсы",
-    coursesContent:
-      "<ul><li>Введение в программирование (C++) — отлично</li></ul>",
+    coursesContent: "<ul><li>Введение в программирование (C++) — отлично</li></ul>",
     communityTitle: "Общественная жизнь",
-    communityContent:
-      "<p>Участник молодежных организаций, профсоюза и БРСМ, активно поддерживаю гражданскую позицию.</p>",
+    communityContent: "<p>Участник молодежных организаций, профсоюза и БРСМ, активно поддерживаю гражданскую позицию.</p>",
     achievementsTitle: "Достижения и награды",
-    achievementsContent:
-      "<ul><li>3-е место во 2-м этапе Республиканской олимпиады по математике</li></ul>",
+    achievementsContent: "<ul><li>3-е место во 2-м этапе Республиканской олимпиады по математике</li></ul>",
     whyMeTitle: "Почему я?",
     whyMeList: [
       "Коммуникация — моя сильная сторона",
       "Умею выявлять потребности и замечать детали",
       "Готов проявить себя и развиваться",
     ],
-
-    // disciplines.html
     disciplinesButton: "Изучаемые дисциплины",
     disciplinesPageTitle: "ИЗУЧАЕМЫЕ ДИСЦИПЛИНЫ",
     backButton: "Назад",
@@ -115,18 +109,15 @@ const translations = {
     coursesTitle: "Courses",
     coursesContent: "<ul><li>Introduction to programming (C++) grade: excellent</li></ul>",
     communityTitle: "Community Involvement",
-    communityContent:
-      "<p>Member of youth organizations, trade union and BRSM, actively supporting civil position.</p>",
+    communityContent: "<p>Member of youth organizations, trade union and BRSM, actively supporting civil position.</p>",
     achievementsTitle: "Achievements and Awards",
-    achievementsContent:
-      "<ul><li>Third place in the second stage of the Republican Mathematics Olympiad</li></ul>",
+    achievementsContent: "<ul><li>Third place in the second stage of the Republican Mathematics Olympiad</li></ul>",
     whyMeTitle: "Why me?",
     whyMeList: [
       "Communication is my strong point",
       "I can identify needs and notice details",
       "Ready to prove myself and grow",
     ],
-
     disciplinesButton: "Disciplines",
     disciplinesPageTitle: "DISCIPLINES",
     backButton: "Back",
@@ -162,7 +153,7 @@ const translations = {
         <li>数组：实现数据处理和排序算法</li>
         <li>链表和结构体：创建动态数据结构</li>
         <li>排序：冒泡排序，快速排序，插入排序</li>
-        <li>课程项目“图书馆”：
+        <li>课程项目"图书馆"：
           <ul>
             <li>按作者、标题、年份搜索</li>
             <li>按各种标准排序</li>
@@ -174,55 +165,58 @@ const translations = {
     coursesTitle: "课程",
     coursesContent: "<ul><li>编程入门（C++）评分：优秀</li></ul>",
     communityTitle: "社会活动",
-    communityContent:
-      "<p>青年组织、工会和白俄罗斯共和国青年联盟成员，积极支持公民立场。</p>",
+    communityContent: "<p>青年组织、工会和白俄罗斯共和国青年联盟成员，积极支持公民立场。</p>",
     achievementsTitle: "成就与奖励",
-    achievementsContent:
-      "<ul><li>数学共和国奥林匹克竞赛第二阶段第三名</li></ul>",
+    achievementsContent: "<ul><li>数学共和国奥林匹克竞赛第二阶段第三名</li></ul>",
     whyMeTitle: "为什么选择我？",
     whyMeList: ["沟通是我的强项", "善于发现需求和注意细节", "准备展现自我并持续成长"],
-
     disciplinesButton: "学科",
     disciplinesPageTitle: "学科列表",
     backButton: "返回",
     specLabel: "专业：",
     profilLabel: "细分：",
     qualLabel: "资质：",
-  },
+  }
 };
 
 // Update page content based on language
 function updateContent(lang) {
-  const t = translations[lang];
+  const t = translations[lang] || translations['en']; // Fallback to English if translation missing
+  
+  // Helper function to safely update element content
+  function updateElement(selector, content) {
+    const element = document.querySelector(selector);
+    if (element) {
+      if (typeof content === 'function') {
+        content(element);
+      } else {
+        element.innerHTML = content;
+      }
+    }
+  }
 
   // Sidebar
-  document.querySelector('.sidebar h1').textContent = t.name;
-  document.querySelector('.sidebar .title').textContent = t.title;
-  document.querySelector('.contact-info').innerHTML = `
+  updateElement('.sidebar h1', t.name);
+  updateElement('.sidebar .title', t.title);
+  updateElement('.contact-info', `
     <p>📧 <a href="mailto:${t.contactEmail}">${t.contactEmail}</a></p>
     <p>💬 <a href="https://t.me/k4shera" target="_blank">${t.contactTelegram}</a></p>
     <p>💻 <a href="https://github.com/k4shera123" target="_blank">${t.contactGitHub}</a></p>
-  `;
+  `);
 
   // Skills
-  document.querySelector('.skills h2').textContent = t.skillsTitle;
-  const skillsUl = document.querySelector('.skills ul');
-  skillsUl.innerHTML = '';
-  t.skillsList.forEach(skill => {
-    const li = document.createElement('li');
-    li.textContent = skill;
-    skillsUl.appendChild(li);
+  updateElement('.skills h2', t.skillsTitle);
+  updateElement('.skills ul', (ul) => {
+    ul.innerHTML = t.skillsList.map(skill => `<li>${skill}</li>`).join('');
   });
 
   // About me
-  document.querySelector('.about h2').textContent = t.aboutMeTitle;
-  document.querySelector('.about .card').innerHTML = t.aboutMeParagraphs
-    .map(p => `<p>${p}</p>`)
-    .join('');
+  updateElement('.about h2', t.aboutMeTitle);
+  updateElement('.about .card', t.aboutMeParagraphs.map(p => `<p>${p}</p>`).join(''));
 
   // Education
-  document.querySelector('.education h2').textContent = t.educationTitle;
-  document.querySelector('.education .card').innerHTML = `
+  updateElement('.education h2', t.educationTitle);
+  updateElement('.education .card', `
     <h3>${t.educationUniversity}</h3>
     <p>
       ${t.educationFaculty}<br />
@@ -232,96 +226,108 @@ function updateContent(lang) {
     <button id="view-disciplines" class="disciplines-link" type="button">
       ${t.disciplinesButton}
     </button>
-  `;
+  `);
 
   // Experience
-  document.querySelector('.experience h2').textContent = t.experienceTitle;
-  document.querySelector('.experience .card').innerHTML = t.experienceContent;
+  updateElement('.experience h2', t.experienceTitle);
+  updateElement('.experience .card', t.experienceContent);
 
   // Courses
-  document.querySelector('.courses h2').textContent = t.coursesTitle;
-  document.querySelector('.courses .card').innerHTML = t.coursesContent;
+  updateElement('.courses h2', t.coursesTitle);
+  updateElement('.courses .card', t.coursesContent);
 
   // Community
-  document.querySelector('.community h2').textContent = t.communityTitle;
-  document.querySelector('.community .card').innerHTML = t.communityContent;
+  updateElement('.community h2', t.communityTitle);
+  updateElement('.community .card', t.communityContent);
 
   // Achievements
-  document.querySelector('.achievements h2').textContent = t.achievementsTitle;
-  document.querySelector('.achievements .card').innerHTML = t.achievementsContent;
+  updateElement('.achievements h2', t.achievementsTitle);
+  updateElement('.achievements .card', t.achievementsContent);
 
   // Why me
-  document.querySelector('.why-me h2').textContent = t.whyMeTitle;
-  const whyUl = document.querySelector('.why-me ul');
-  whyUl.innerHTML = '';
-  t.whyMeList.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    whyUl.appendChild(li);
+  updateElement('.why-me h2', t.whyMeTitle);
+  updateElement('.why-me ul', (ul) => {
+    ul.innerHTML = t.whyMeList.map(item => `<li>${item}</li>`).join('');
   });
 
-  // disciplines.html
-  const header = document.querySelector('.disciplines-header');
-  if (header) {
-    header.querySelector('h1').textContent = t.disciplinesPageTitle;
-    const back = document.querySelector('.back-button');
-    back.innerHTML = `<i class="fas fa-arrow-left"></i> ${t.backButton}`;
-
-    const info = document.querySelectorAll('.specialization-info p');
-    info[0].querySelector('strong').textContent = t.specLabel;
-    info[1].querySelector('strong').textContent = t.profilLabel;
-    info[2].querySelector('strong').textContent = t.qualLabel;
+  // Disciplines page
+  updateElement('.disciplines-header h1', t.disciplinesPageTitle);
+  updateElement('.back-button', `<i class="fas fa-arrow-left"></i> ${t.backButton}`);
+  
+  const infoLabels = document.querySelectorAll('.specialization-info p');
+  if (infoLabels.length >= 3) {
+    infoLabels[0].querySelector('strong').textContent = t.specLabel;
+    infoLabels[1].querySelector('strong').textContent = t.profilLabel;
+    infoLabels[2].querySelector('strong').textContent = t.qualLabel;
   }
 }
 
-// DOMContentLoaded
-window.addEventListener('DOMContentLoaded', () => {
-  // Theme
+// Initialize the page
+function initPage() {
+  // Theme initialization
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     document.body.classList.add('dark');
   }
 
-  // Language
-  const sel = document.getElementById('language-select');
-  const savedLang = localStorage.getItem('language') || 'ru';
-  sel.value = savedLang;
-  updateContent(savedLang);
+  // Language initialization
+  const langSelector = document.getElementById('language-select');
+  if (langSelector) {
+    const savedLang = localStorage.getItem('language') || 'ru';
+    langSelector.value = savedLang;
+    updateContent(savedLang);
 
-  sel.addEventListener('change', e => {
-    const lang = e.target.value;
-    localStorage.setItem('language', lang);
-    updateContent(lang);
-  });
-
-  // Scroll animation
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-  // Theme toggle
-  document.getElementById('theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem(
-      'theme',
-      document.body.classList.contains('dark') ? 'dark' : 'light'
-    );
-  });
-
-  // View disciplines button
-  const viewBtn = document.getElementById('view-disciplines');
-  if (viewBtn) {
-    viewBtn.addEventListener('click', () => {
-      window.location.href = 'disciplines.html';
+    langSelector.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      localStorage.setItem('language', lang);
+      updateContent(lang);
     });
   }
-});
+
+  // Scroll animation
+  const animateElements = document.querySelectorAll('.animate');
+  if (animateElements.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    animateElements.forEach(el => observer.observe(el));
+  }
+
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem(
+        'theme',
+        document.body.classList.contains('dark') ? 'dark' : 'light'
+      );
+    });
+  }
+
+  // Handle back button on disciplines page
+  const backButton = document.querySelector('.back-button');
+  if (backButton) {
+    backButton.addEventListener('click', () => {
+      window.history.back();
+    });
+  }
+
+  // Handle disciplines button using event delegation
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'view-disciplines') {
+      window.location.href = 'disciplines.html';
+    }
+  });
+}
+
+// Start everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', initPage);
